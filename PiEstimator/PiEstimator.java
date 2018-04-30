@@ -1,4 +1,20 @@
 public class PiEstimator {
+
+    public static void piEstimator(int darts) {
+        int inCircle = 0;
+        for (int i = 0; i < darts; i++) {
+            double x = Math.random() * 2 - 1;
+            double y = Math.random() * 2 - 1;
+            if ((x * x) + (y * y) <= 1) {
+                inCircle++;
+            }
+        }
+        double piEstimate = ((double)inCircle / (double)darts) * 4;
+        System.out.println("Total Darts: " + darts);
+        System.out.println("Darts in Circle: " + inCircle);
+        System.out.println("Pi Estimate: " + piEstimate);
+    }
+
     public static void main(String[] args) {
         int totalDarts = 0;
         if (args.length == 0) {
@@ -17,17 +33,6 @@ public class PiEstimator {
                 return;
             }
         }
-        int inCircle = 0;
-        for (int i = 0; i < totalDarts; i++) {
-            double x = Math.random() * 2 - 1;
-            double y = Math.random() * 2 - 1;
-            if ((x * x) + (y * y) <= 1) {
-                inCircle++;
-            }
-        }
-        double piEstimate = ((double)inCircle / (double)totalDarts) * 4;
-        System.out.println("Total Darts: " + totalDarts);
-        System.out.println("Darts in Circle: " + inCircle);
-        System.out.println("Pi Estimate: " + piEstimate);
+        piEstimator(totalDarts);
     }
 }
